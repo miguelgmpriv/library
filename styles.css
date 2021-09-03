@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+#new-modal{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.521);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 3%;
+}
+#new-modal-form{
+    width: 95vw;
+    max-width: 600px;
+    height: 90vh;
+    max-height: 700px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    margin: 0 auto;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    min-height: fit-content;
+    color: rgb(96, 141, 141);
+    background-color: beige;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 40px;
+    padding-left: 14px;
+}

@@ -8,10 +8,25 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="">
-    <h1>This is a Heading</h1>
-    <p>This is a paragraph.</p>
-    <p>This is another paragraph.</p>
+    <h1>Library</h1>
+    <button id="new-book">Add new book</button>
+    <div id="new-modal">
+        <div id="new-modal-form">
+            <header>
+                <h3>Add new book</h3>
+                <span>&times;</span>
+            </header>
+            <form>
+                <label for="book-name">Book name</label>
+                <input type="text" id="book-name" name="book-name" placeholder="Murder on the Orient Express" required><br>
+                <label for="book-author">Author</label>
+                <input type="text" id="book-author" name="book-author" placeholder="Agatha Christie" required><br>
+                <label for="book-pages">Number of pages</label>
+                <input type="number" id="book-pages" name="book-pages" min="1" max="9999" placeholder="256" required><br>
+                <input type="submit" value="Add Book">
+            </form>
+
+        </div>
     </div>
 </body>
 </html>
