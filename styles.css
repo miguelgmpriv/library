@@ -21,10 +21,27 @@
     position: relative;
     overflow: hidden;
     border-radius: 4px;
-    margin: 0 auto;
+    margin: auto;
     background-color: aqua;
     display: flex;
     flex-direction: column;
+}
+#book-form{
+    display: flex;
+    flex-direction: column;
+    margin: 10% 10%;
+}
+#book-form input[type="text"]{
+    border: 0;
+    padding: 5%;
+}
+#book-form input[type="number"]{
+    width: 50%;
+}
+#book-form-read{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 header{
     min-height: fit-content;
@@ -34,4 +51,14 @@ header{
     align-items: center;
     grid-template-columns: auto 40px;
     padding-left: 14px;
+}
+h3{
+    text-align: center;
+}
+span{
+    font-size: xx-large;
+}
+
+::placeholder{
+    font-style: italic;   
 }

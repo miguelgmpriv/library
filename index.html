@@ -16,14 +16,22 @@
                 <h3>Add new book</h3>
                 <span>&times;</span>
             </header>
-            <form>
-                <label for="book-name">Book name</label>
-                <input type="text" id="book-name" name="book-name" placeholder="Murder on the Orient Express" required><br>
+            <form id="book-form">
+                <label for="book-title">Title:</label>
+                <input type="text" id="book-title" name="book-title" placeholder="Murder on the Orient Express" required><br>
                 <label for="book-author">Author</label>
                 <input type="text" id="book-author" name="book-author" placeholder="Agatha Christie" required><br>
-                <label for="book-pages">Number of pages</label>
-                <input type="number" id="book-pages" name="book-pages" min="1" max="9999" placeholder="256" required><br>
+                <div id="book-form-read">
+                    <label for="book-pages">Pages
+                    <input type="number" id="book-pages" name="book-pages" min="1" max="9999" placeholder="256" required><br>
+                    </label>
+                    <label id="switch">Read:
+                        <input type="checkbox">
+                        <span id="slider"></span>
+                    </label>
+                </div>
                 <input type="submit" value="Add Book">
+
             </form>
 
         </div>
