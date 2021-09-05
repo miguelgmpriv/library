@@ -14,15 +14,16 @@
     padding-top: 3%;
 }
 #new-modal-form{
+    color: antiquewhite;
     width: 95vw;
-    max-width: 600px;
+    max-width: 400px;
     height: 90vh;
-    max-height: 700px;
+    max-height: 400px;
     position: relative;
     overflow: hidden;
     border-radius: 4px;
     margin: auto;
-    background-color: aqua;
+    background-color: rgb(24, 27, 49);
     display: flex;
     flex-direction: column;
 }
@@ -30,6 +31,7 @@
     display: flex;
     flex-direction: column;
     margin: 10% 10%;
+    font-size: large;
 }
 #book-form input[type="text"]{
     border: 0;
@@ -39,11 +41,33 @@
     width: 50%;
     height: 100%;
 }
-
 #book-form-read{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+#book-form input[type="submit"]{
+    width: fit-content;
+    height: fit-content;
+    font-weight:lighter;
+    font-size: large;
+    padding: 5px;
+    border: none;
+    align-self: center;
+    color: rgb(207, 221, 221);
+    background-color: rgba(60, 61, 95, 0.562);
+    box-shadow: 1px 1px 4px 1px  rgb(60, 61, 95);
+}
+#book-form input[type="submit"]:hover{
+    background-color: rgba(60, 61, 95, 0.068);
+    box-shadow: 1px 1px 10px 5px  rgb(60, 61, 95);
+    cursor: pointer;
+    font-weight: bold;
+}
+#book-form input[type="submit"]:active{
+    box-shadow: 0px 0px 0px 0px;
+    background-color: rgba(60, 61, 95, 0.562);
+    font-weight: lighter;
 }
 #switch {
     position: relative;
@@ -91,20 +115,23 @@ input:checked + #slider:before {
 }
 header{
     min-height: fit-content;
-    color: rgb(96, 141, 141);
-    background-color: beige;
+    color: rgb(207, 221, 221);
+    background-color: rgb(60, 61, 95);
     display: grid;
     align-items: center;
     grid-template-columns: auto 40px;
     padding-left: 14px;
 }
-h3{
+h2{
     text-align: center;
 }
 .close{
     font-size: xx-large;
 }
-
 ::placeholder{
     font-style: italic;   
+}
+.switch{
+    display: flex;
+    align-items: center;
 }

@@ -13,28 +13,27 @@
     <div id="new-modal">
         <div id="new-modal-form">
             <header>
-                <h3>Add new book</h3>
+                <h2>Add new book</h2>
                 <span class="close">&times;</span>
             </header>
             <form id="book-form">
-                <label for="book-title">Title:</label>
+                <label for="book-title">Title</label>
                 <input type="text" id="book-title" name="book-title" placeholder="Murder on the Orient Express" required><br>
                 <label for="book-author">Author</label>
                 <input type="text" id="book-author" name="book-author" placeholder="Agatha Christie" required><br>
                 <div id="book-form-read">
-                    <label for="book-pages">Pages: 
+                    <label for="book-pages">Pages:&nbsp;&nbsp;    
                     <input type="number" id="book-pages" name="book-pages" min="1" max="9999" placeholder="256" required><br>                 
                     </label>
-                    <span>Read:
+                    <div class="switch">Read:&nbsp;&nbsp;  
                     <label id="switch">
                         <input type="checkbox">
                         <span id="slider"></span>
                     </label>
-                    </span>
+                    </div>
                 </div>
                 <br>
-                <input type="submit" value="Add Book">
-
+                <input type="submit" value="Add book">
             </form>
 
         </div>
