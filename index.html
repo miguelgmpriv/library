@@ -27,7 +27,7 @@
                     <input type="number" id="book-pages" name="book-pages" min="1" max="9999" placeholder="256" required><br>                 
                     </label>
                     <div class="switch">Read:&nbsp;&nbsp;  
-                        <label id="form-switch">
+                        <label id="form-switch" class="form-switch">
                         <input type="checkbox">
                         <span class="slider"></span>
                         </label>
@@ -43,12 +43,12 @@
             <h3 data-title="">Murder on the Orient Express</h3>
             <p data-author="">Author: Agatha Christie</p>
             <p data-pages="">Pages: 256</p>
-            <div data-read="" class="switch">Read:&nbsp;&nbsp;  
-                <label id="book-switch">
-                <input type="checkbox">
+            <label class="form-switch">
+                <input data-read="" type="checkbox">
                 <span class="slider"></span>
-                </label>
-            </div>
+            </label>
+            <!-- <div data-read="" class="switch">Read:&nbsp;&nbsp;
+            </div> -->
         </div>
         
     </div>

@@ -1,6 +1,5 @@
 
 let myLibrary = []
-let bookNum = 0;
 const original = document.querySelector(`div[data-book='']`);
 
 const newBook = document.getElementById('new-book');
@@ -22,26 +21,39 @@ function Book(){
 
 function addBook(event){
     myLibrary.push(new Book());
-    makeCard(myLibrary.at(-1));
+    makeCard(myLibrary.at(-1), (myLibrary.length - 1));
 
     //console.log(clone.querySelector(`[data-title='']`).dataset)
     //clone.dataset.title[bookNum].outerText = `${myLibrary[bookNum].title}`;
     //console.log(clone.getElementsByTagName('h3')[0].outerText);
-    
-    bookNum += 1;
- 
     event.preventDefault();
 }
 
-function makeCard(book){
+function makeCard(book, bookNum){
     let clone = original.cloneNode(true);
+    bookItems = Object.keys(book);
     clone.dataset.book = `${bookNum}`;
+    for (counter = 0; counter < 4; counter++){
+        if (counter === 3){
+            clone.children[counter].children[0].dataset[bookItems[counter]] = `${bookNum}`
+            clone.children[counter].children[0].checked = book[bookItems[counter]]
+            continue;
+        }
+        clone.children[counter].dataset[bookItems[counter]] = `${bookNum}`
+        clone.children[counter].textContent = book[bookItems[counter]];
+    }
+
+/*     clone.children[0].dataset = `${bookNum}`;
+    clone.children[1].dataset = `${bookNum}`;
+    clone.children[2].dataset = `${bookNum}`;
+
+
+    clone.children[3].dataset.read = `${bookNum}`;
     clone.children[0].textContent = book.title;
     clone.children[1].textContent = book.author;
     clone.children[2].textContent = book.pages;
-    console.log(clone.children[3].children.id);
-    //clone.children[1].outerText = book.author;
-    //console.log(clone.children[0].dataset);
-   // console.log(clone.querySelectorAll('[data-title]'));
+    clone.children[3].children[0].checked = book.read; */
+    
+
     original.after(clone);
 }
