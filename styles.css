@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #new-modal{
@@ -14,7 +16,7 @@
     padding-top: 3%;
 }
 #new-modal-form{
-    color: antiquewhite;
+    color: rgb(207, 221, 221);
     width: 95vw;
     max-width: 400px;
     height: 90vh;
@@ -69,18 +71,29 @@
     background-color: rgba(60, 61, 95, 0.562);
     font-weight: lighter;
 }
-#switch {
+#form-switch {
     position: relative;
-    display: inline-block; /*Maybe unnecessary */
+    display: inline-block;
     height: 35px;
     width: 60px;
 }
-#switch input{
+#form-switch input{
     opacity: 0;
     width: 0;
     height: 0;
 }
-#slider{
+#book-switch {
+    position: relative;
+    display: inline-block;
+    height: 35px;
+    width: 60px;
+}
+#book-switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider{
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -91,7 +104,7 @@
     -webkit-transition: .4s;
     transition: .4s;
 }
-#slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -102,13 +115,13 @@
     -webkit-transition: .4s;
     transition: .4s;
 }
-input:checked + #slider {
+input:checked + .slider {
     background-color: #2196F3;
 }  
-input:focus + #slider {
+input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
 }
-input:checked + #slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
@@ -122,11 +135,40 @@ header{
     grid-template-columns: auto 40px;
     padding-left: 14px;
 }
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: rgb(24, 27, 49);
+}
+
+.header{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    background-color: rgb(60, 61, 95);
+    color: rgb(207, 221, 221);
+}
+.library{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.book{
+    color: rgb(207, 221, 221);
+    margin: 5vh 0 0 10vw;
+    height: 25vh;
+    width: 80vw;
+    background-color: rgb(60, 61, 95);
+    padding-left: 2vw;
+    
+}
 h2{
     text-align: center;
 }
 .close{
     font-size: xx-large;
+    cursor: pointer;
 }
 ::placeholder{
     font-style: italic;   

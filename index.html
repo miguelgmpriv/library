@@ -8,8 +8,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Library</h1>
-    <button id="new-book">Add new book</button>
+    <div class="header">
+        <h1>Library</h1>
+    </div>
     <div id="new-modal">
         <div id="new-modal-form">
             <header>
@@ -26,17 +27,31 @@
                     <input type="number" id="book-pages" name="book-pages" min="1" max="9999" placeholder="256" required><br>                 
                     </label>
                     <div class="switch">Read:&nbsp;&nbsp;  
-                    <label id="switch">
+                        <label id="form-switch">
                         <input type="checkbox">
-                        <span id="slider"></span>
-                    </label>
+                        <span class="slider"></span>
+                        </label>
                     </div>
                 </div>
                 <br>
                 <input type="submit" value="Add book">
             </form>
-
         </div>
     </div>
+    <div class="library">
+        <div class="book">
+            <h3>Murder on the Orient Express</h3>
+            <p>Author: Agatha Christie</p>
+            <p>Pages: 256</p>
+            <div class="switch">Read:&nbsp;&nbsp;  
+                <label id="book-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        
+    </div>
+    <button id="new-book">Add new book</button>
 </body>
 </html>
