@@ -6,11 +6,12 @@ const newBook = document.getElementById('add-book');
 const newModal = document.getElementById('new-modal');
 const bookForm = document.getElementById('book-form');
 
-
+localLibrary(true);
 
 library.addEventListener('click',routeClick);
 newBook.addEventListener('click',() => newModal.style.display= 'block');
 bookForm.addEventListener('submit', addBook)
+
 window.onclick = function(e){
     if (e.target == newModal) {newModal.style.display = 'none';}
 };
@@ -70,6 +71,7 @@ function makeCard(book, bookNum){
     original.remove();
     clone.style.display = 'block';
     library.insertBefore(clone, newBook);
+    localLibrary();
 }
 
 function removeCard(event){
@@ -80,7 +82,50 @@ function removeCard(event){
     }
     //Removes from the library array based on the dataset value, then redraw library
     myLibrary.splice(indexDel, 1);    
+    remakeLibrary();
+    localLibrary();
+}
+
+function remakeLibrary(){
     for (let counter = 0, max = myLibrary.length - 1; counter <= max; counter++){
         makeCard(myLibrary[counter],counter);
+    }
+}
+
+function storageAvailable(type) {
+    var storage;
+    try {
+        storage = window[type];
+        var x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+}
+
+function localLibrary(condition){
+    if (condition != null){
+        if (localStorage.getItem('storeLibrary')){
+            myLibrary = JSON.parse(localStorage.getItem('storeLibrary'));
+            remakeLibrary();
+        }
+    } else if (storageAvailable('localStorage')) {
+        localStorage.setItem('storeLibrary', JSON.stringify(myLibrary))
+    } else {
+        return;
     }
 }
