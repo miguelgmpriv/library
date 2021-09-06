@@ -2,7 +2,7 @@
 let myLibrary = []
 const original = document.querySelector(`div[data-book='']`);
 const library = document.getElementById('my-library')
-const newBook = document.getElementById('new-book');
+const newBook = document.getElementById('add-book');
 const newModal = document.getElementById('new-modal');
 const bookForm = document.getElementById('book-form');
 
@@ -23,6 +23,7 @@ function addBook(event){
     myLibrary.push(new Book());
     makeCard(myLibrary.at(-1), (myLibrary.length - 1));
     event.preventDefault();
+
 }
 
 function makeCard(book, bookNum){
@@ -43,10 +44,12 @@ function makeCard(book, bookNum){
         }
         clone.children[counter].textContent += book[bookItems[counter]];
     }
-    if (bookNum === 0){
+/*     if (bookNum === 0){
         original.remove();
         library.appendChild(clone);
         return;
-    }
-    library.appendChild(clone);
+    } */
+    clone.style.display = 'block';
+    library.insertBefore(clone, newBook);
+    
 }
