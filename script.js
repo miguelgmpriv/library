@@ -6,6 +6,9 @@ const newBook = document.getElementById('add-book');
 const newModal = document.getElementById('new-modal');
 const bookForm = document.getElementById('book-form');
 
+
+
+library.addEventListener('click',routeClick);
 newBook.addEventListener('click',() => newModal.style.display= 'block');
 bookForm.addEventListener('submit', addBook)
 window.onclick = function(e){
@@ -17,6 +20,10 @@ function Book(){
     this.author = bookForm.elements[1].value;
     this.pages = bookForm.elements[2].value;
     this.read = bookForm.elements[3].checked;
+}
+function routeClick(event){
+    const dataAtt = event.target.dataset
+    if(dataAtt.remove) removeCard(event);
 }
 
 function addBook(event){
@@ -31,8 +38,8 @@ function makeCard(book, bookNum){
     let clone = original.cloneNode(true); 
     bookItems = Object.keys(book); //Turn object into array so we can use in for loop
     clone.dataset.book = `${bookNum}`;
+    clone.children[4].dataset.remove = `${bookNum}`;
     for (counter = 0; counter < 4; counter++){
-        const displayText = clone.children[counter].textContent;
         clone.children[counter].dataset[bookItems[counter]] = `${bookNum}`
         if (counter === 3){
             if (book[bookItems[counter]]){ 
@@ -44,12 +51,19 @@ function makeCard(book, bookNum){
         }
         clone.children[counter].textContent += book[bookItems[counter]];
     }
-/*     if (bookNum === 0){
-        original.remove();
-        library.appendChild(clone);
-        return;
-    } */
+    original.remove();
     clone.style.display = 'block';
     library.insertBefore(clone, newBook);
-    
+}
+
+function removeCard(event){
+    const delCard = event.target.parentNode;
+    const indexDel = delCard.dataset.book;
+    while (library.firstChild.id !== 'add-book'){
+        library.removeChild(library.firstChild);
+    }
+    myLibrary.splice(indexDel, 1);    
+    for (let counter = 0, max = myLibrary.length - 1; counter <= max; counter++){
+        makeCard(myLibrary[counter],counter);
+    }
 }

@@ -144,12 +144,12 @@ body{
 .library{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }
 .book{
     display: none;
     color: rgb(207, 221, 221);
-    margin: 5vh 0 0 10vw;
+    margin: 5vh auto 0;
     height: 31vh;
     max-height: 250px;
     width: 80vw;
@@ -159,9 +159,7 @@ body{
     padding-right: 2vw;    
 }
 #add-book{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
     cursor: pointer;
 }
 .book-add::before{
