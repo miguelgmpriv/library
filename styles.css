@@ -2,6 +2,9 @@
     box-sizing: border-box;
     overflow: hidden;
     text-overflow: ellipsis;
+    --left-margin: 10%;
+    --rigth-margin: 10%;
+    --font-size: large;
 }
 
 #new-modal{
@@ -146,12 +149,13 @@ body{
 .book{
     color: rgb(207, 221, 221);
     margin: 5vh 0 0 10vw;
-    height: 30vh;
-    max-height: 300px;
+    height: 31vh;
+    max-height: 250px;
     width: 80vw;
     max-width: 400px;
     background-color: rgb(60, 61, 95);
     padding-left: 2vw;
+    padding-right: 2vw;
     
 }
 h2{
@@ -167,4 +171,54 @@ h2{
 .switch{
     display: flex;
     align-items: center;
+}
+.buttons{
+    width: 35%;
+    max-width: 150px;
+    height: fit-content;
+    font-weight:lighter;
+    font-size: large;
+    padding: 10px;
+    border: solid;
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(207, 221, 221);
+}
+
+.buttons:active{
+    box-shadow: 0px 0px 0px 0px;
+    background-color: rgba(60, 61, 95, 0.562);
+    font-weight: lighter;
+}
+[data-read]{
+    margin-left: var(--left-margin);
+    float: left;
+    background-color: rgb(133, 8, 8);
+}
+[data-read]:hover{
+    background-color: rgba(0, 59, 187, 0.815);
+    cursor: pointer;
+    font-weight: bold;
+}
+[data-remove]{
+    margin-right: var(--rigth-margin);
+    float: right;
+    background-color: rgb(133, 8, 8);
+
+}
+[data-remove]:hover{
+    background-color: rgb(90, 40, 40);
+    cursor: pointer;
+    font-weight: bold;
+}
+[data-title]{
+    font-weight: bolder;
+}
+p{
+    font-size: var(--font-size);
+}
+@media only screen and (min-width: 500px) {
+    * {
+        --font-size: x-large;
+    }
 }
