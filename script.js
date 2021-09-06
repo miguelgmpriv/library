@@ -5,13 +5,16 @@ const library = document.getElementById('my-library')
 const newBook = document.getElementById('add-book');
 const newModal = document.getElementById('new-modal');
 const bookForm = document.getElementById('book-form');
+const modalForm = document.getElementById('new-modal-form');
 
 localLibrary(true);
 
 library.addEventListener('click',routeClick);
 newBook.addEventListener('click',() => newModal.style.display= 'block');
-bookForm.addEventListener('submit', addBook)
+bookForm.addEventListener('submit', addBook);
+modalForm.addEventListener('click',routeClick);
 
+//Closes form if click anywhere outside of the add book form
 window.onclick = function(e){
     if (e.target == newModal) {newModal.style.display = 'none';}
 };
@@ -23,19 +26,28 @@ function Book(){
     this.read = bookForm.elements[3].checked;
 }
 function routeClick(event){
-    const dataAtt = event.target.dataset
+    if(event.target.id === 'close'){
+        newModal.style.display = 'none';
+        return;
+    }
+    const dataAtt = event.target.dataset;
     if(dataAtt.remove) removeCard(event);
     if(dataAtt.read) toggleRead(event);
 }
 
 function addBook(event){
+    event.preventDefault();
+    //Adds book to last array slot and uses array methods to make new card
     myLibrary.push(new Book());
     makeCard(myLibrary.at(-1), (myLibrary.length - 1));
-    event.preventDefault();
+    //Resets form and returns to library
+    bookForm.reset();
+    newModal.style.display = 'none';
 }
 
 function toggleRead(event){
-    let bookRead = event.target
+    //Changes button as well as myLibrary.read to the users choice
+    let bookRead = event.target;
     if (bookRead.textContent === 'Read'){
         bookRead.textContent = 'Not Read';
         myLibrary[bookRead.dataset.read].read = false;
@@ -45,6 +57,7 @@ function toggleRead(event){
         myLibrary[bookRead.dataset.read].read = true;
         bookRead.style.backgroundColor = 'blue';
     }
+    localLibrary();
 }
 
 function makeCard(book, bookNum){
@@ -118,6 +131,8 @@ function storageAvailable(type) {
 }
 
 function localLibrary(condition){
+    //If anything is passed check localstorage and remake library
+    //Otherwise save to localstorage when called
     if (condition != null){
         if (localStorage.getItem('storeLibrary')){
             myLibrary = JSON.parse(localStorage.getItem('storeLibrary'));

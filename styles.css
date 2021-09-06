@@ -1,7 +1,5 @@
 * {
     box-sizing: border-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
     --left-margin: 10%;
     --rigth-margin: 10%;
     --font-size: large;
@@ -148,6 +146,9 @@ body{
 }
 .book{
     display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: rgb(207, 221, 221);
     margin: 5vh auto 0;
     height: 31vh;
@@ -223,7 +224,15 @@ h2{
     font-weight: bold;
 }
 [data-title]{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-weight: bolder;
+}
+[data-author]{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 p{
     font-size: var(--font-size);
