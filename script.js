@@ -19,11 +19,13 @@ window.onclick = function(e){
     if (e.target == newModal) {newModal.style.display = 'none';}
 };
 
-function Book(){
-    this.title = bookForm.elements[0].value;
-    this.author = bookForm.elements[1].value;
-    this.pages = bookForm.elements[2].value;
-    this.read = bookForm.elements[3].checked;
+class Book {
+    constructor(event) {
+        this.title = event[0].value;
+        this.author = event[1].value;
+        this.pages = event[2].value;
+        this.read = event[3].checked;
+    }
 }
 function routeClick(event){
     if(event.target.id === 'close'){
@@ -38,7 +40,7 @@ function routeClick(event){
 function addBook(event){
     event.preventDefault();
     //Adds book to last array slot and uses array methods to make new card
-    myLibrary.push(new Book());
+    myLibrary.push(new Book(event.target.elements));
     makeCard(myLibrary.at(-1), (myLibrary.length - 1));
     //Resets form and returns to library
     bookForm.reset();
